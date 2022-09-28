@@ -13,10 +13,13 @@ provider "kubernetes" {
 }
 
 # Configure the GitHub Provider with GITHUB_TOKEN environment variable
-provider "github" {}
+provider "github" {
+  owner = "gh-osi22"
+}
 
 module "eks" {
   source          = "terraform-aws-modules/eks/aws"
+  version        = "17.24.0"
   
   cluster_name    = local.cluster_name
   cluster_version = local.cluster_version
@@ -39,7 +42,7 @@ module "eks" {
       k8s_labels = {
         Environment = "demo"
         GitHubRepo  = "monacloud"
-        GitHubOrg   = "mvkaran"
+        GitHubOrg   = "gh-osi22"
         ProvisionedBy = "terraform"
       }
       additional_tags = {
@@ -64,7 +67,7 @@ module "eks" {
   tags = {
     Environment = "demo"
     GitHubRepo  = "monacloud"
-    GitHubOrg   = "mvkaran"
+    GitHubOrg   = "gh-osi22"
     ProvisionedBy = "terraform"
   }
 }

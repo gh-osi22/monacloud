@@ -5,12 +5,12 @@ resource "random_string" "suffix" {
 }
 
 variable "region" {
-  default     = "us-east-1"
+  default     = "ap-south-1"
   description = "AWS region"
 }
 
 data "github_repository" "repo" {
-  full_name = "mvkaran/monacloud"
+  full_name = "gh-osi22/monacloud"
 }
 
 locals {

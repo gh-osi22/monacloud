@@ -1,6 +1,8 @@
 
 # Configure the GitHub Provider with GITHUB_TOKEN environment variable
-provider "github" {}
+provider "github" {
+  owner = "gh-osi22"
+}
 
 # GKE cluster
 resource "google_container_cluster" "primary" {

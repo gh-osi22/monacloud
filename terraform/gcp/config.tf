@@ -16,7 +16,7 @@ variable "project_id" {
 
 
 data "github_repository" "repo" {
-  full_name = "mvkaran/monacloud"
+  full_name = "gh-osi22/monacloud"
 }
 
 locals {

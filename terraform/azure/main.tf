@@ -9,16 +9,18 @@ provider "azurerm" {
 }
 
 # Configure the GitHub Provider with GITHUB_TOKEN environment variable
-provider "github" {}
+provider "github" {
+  owner = "gh-osi22"
+}
 
 # Create a resource group to hold Kubernetes resources
 resource "azurerm_resource_group" "default" {
   name     = "rg-${local.cluster_name}"
-  location = "West US 2"
+  location = "East US 2"
 
   tags = {
     Environment = "demo"
-    GitHubOrg   = "mvkaran"
+    GitHubOrg   = "gh-osi22"
     GitHubRepo  = "monacloud"
     ProvisionedBy = "terraform"
   }
@@ -34,7 +36,7 @@ resource "azurerm_kubernetes_cluster" "default" {
 
   default_node_pool {
     name            = "workers"
-    node_count      = 2
+    node_count      = 1
     vm_size         = "Standard_D2_v2"
     os_disk_size_gb = 30
   }
@@ -50,7 +52,7 @@ resource "azurerm_kubernetes_cluster" "default" {
 
   tags = {
     Environment = "demo"
-    GitHubOrg   = "mvkaran"
+    GitHubOrg   = "gh-osi22"
     GitHubRepo  = "monacloud"
     ProvisionedBy = "terraform"
   }
