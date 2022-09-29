@@ -130,7 +130,7 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v1
         with:
           role-to-assume: arn:aws:iam::756877124396:role/GitHubActionsOIDC
-          aws-region: us-east-1
+          aws-region: ap-south-1
 
       - name: Set Kubeconfig
         env:
